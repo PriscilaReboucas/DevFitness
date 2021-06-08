@@ -1,4 +1,5 @@
-﻿using DevFitness.API.Core.Entities;
+﻿using AutoMapper;
+using DevFitness.API.Core.Entities;
 using DevFitness.API.Models.InputModels;
 using DevFitness.API.Models.ViewModels;
 using DevFitness.API.Persistence;
@@ -14,10 +15,12 @@ namespace DevFitness.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly DevFitnessDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public UsersController(DevFitnessDbContext dbContext)
+        public UsersController(DevFitnessDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         //api/users/5
@@ -29,7 +32,9 @@ namespace DevFitness.API.Controllers
             if (user == null)
                 return NotFound();
 
-            var userViewModel = new UserViewModel(user.Id, user.FullName, user.Height, user.Weight, user.BirthDate); 
+            // usando o automapper
+            var userViewModel = _mapper.Map<UserViewModel>(user);
+            //var userViewModel = new UserViewModel(user.Id, user.FullName, user.Height, user.Weight, user.BirthDate); 
 
             return Ok(userViewModel);
 
