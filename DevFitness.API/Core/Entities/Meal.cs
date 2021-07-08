@@ -2,7 +2,7 @@
 
 namespace DevFitness.API.Core.Entities
 {
-    public class Meal:BaseEntity
+    public class Meal : BaseEntity
     {
 
         public Meal()
@@ -17,7 +17,7 @@ namespace DevFitness.API.Core.Entities
             UserId = userId;
         }
 
-        public string Descripton  { get; private set; }
+        public string Descripton { get; private set; }
 
         public int Calories { get; private set; }
 

@@ -4,10 +4,7 @@ using DevFitness.API.Models.InputModels;
 using DevFitness.API.Models.ViewModels;
 using DevFitness.API.Persistence;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DevFitness.API.Controllers
 {
